@@ -1,16 +1,41 @@
 # Prompting Techniques in AI Language Models
 
-This document explains several prompting techniques used to guide AI language models, such as GPT, and provides clear examples for each.
+This repository outlines techniques for crafting effective prompts to guide AI language models, such as GPT, and explains different prompting strategies with clear examples.
 
 ---
 
-## 1. Few-Shot Prompting
+## Crafting an Effective Prompt
 
-**Definition:**  
-Provide a few examples of the task you want the model to perform. The model uses these examples to understand the pattern and generate similar outputs.
+To ensure the AI model generates accurate and useful responses, follow this structured approach:
+
+1. **Establish Role and High-Level Task Description:**  
+   - Clearly define the AI's role and the overall objective in 1-2 sentences.
+
+2. **Dynamic/Retrieved Content for Context:**  
+   - Provide any relevant background information or dynamic content to ground the task.
+
+3. **Detailed Task Instructions:**  
+   - Break down the task into clear, step-by-step instructions.
+
+4. **Example:**  
+   - Include examples to guide the model and clarify expectations.
+
+5. **Repeat Critical Information:**  
+   - Reiterate the key points or steps for emphasis.
+
+6. **Prevent Hallucinations:**  
+   - State explicitly: "Say 'I don't know' if you don't know the answer or process asked."
+
+This structure ensures clarity, avoids ambiguity, and minimizes hallucination risks in the AI-generated content.
+
+---
+
+## Prompting Techniques
+
+### 1. Few-Shot Prompting
+Provide a few examples of the task to help the model understand the expected pattern and generate outputs accordingly.
 
 **Example:**
-
 ```
 Translate English to French:
 
@@ -28,13 +53,10 @@ J'adore programmer.
 
 ---
 
-## 2. Zero-Shot Prompting
-
-**Definition:**  
-Simply describe the task without giving any examples. The model relies on its pre-trained knowledge to perform the task.
+### 2. Zero-Shot Prompting
+Simply describe the task without providing examples. The model uses its pre-trained knowledge to perform the task.
 
 **Example:**
-
 ```
 Translate the following sentence to French:  
 "I am learning about AI."
@@ -44,13 +66,10 @@ J'apprends l'intelligence artificielle.
 
 ---
 
-## 3. Chain-of-Thought Prompting
-
-**Definition:**  
-Ask the model to reason step-by-step before arriving at a final answer. This helps with complex tasks that require intermediate reasoning.
+### 3. Chain-of-Thought Prompting
+Encourage the model to reason step-by-step for tasks that require intermediate reasoning.
 
 **Example:**
-
 ```
 Question: If I have 3 apples and I buy 2 more, then I give 1 to a friend, how many apples do I have left?
 Let's think step by step.
@@ -63,33 +82,27 @@ You give 1 to a friend, so you have 4 apples left.
 
 ---
 
-## 4. Tree of Thought Prompting
-
-**Definition:**  
-Encourage the model to explore multiple reasoning paths before deciding on the best solution. This is useful for brainstorming or solving problems with multiple possible approaches.
+### 4. Tree of Thought Prompting
+Encourage the model to explore multiple reasoning paths before deciding on the best solution.
 
 **Example:**
-
 ```
 Question: What are possible ways to increase productivity at work? Please explore different options before choosing the best.
 ```
 *Expected Model Output:*  
-- Option 1: Implement time management tools.
-- Option 2: Encourage regular breaks.
-- Option 3: Provide training for employees.
-- Option 4: Reduce unnecessary meetings.
+- Option 1: Implement time management tools.  
+- Option 2: Encourage regular breaks.  
+- Option 3: Provide training for employees.  
+- Option 4: Reduce unnecessary meetings.  
 
 After considering these options, the best way may be to implement time management tools and provide training for employees.
 
 ---
 
-## 5. Meta-Prompting
-
-**Definition:**  
-Instruct the model on how to behave or answer, often abstractly, such as asking it to think like an expert, or to explain its reasoning.
+### 5. Meta-Prompting
+Guide the model on how to behave or answer, often abstractly, such as asking it to think like an expert or explain its reasoning.
 
 **Example:**
-
 ```
 You are an expert mathematician. Explain your answer as if teaching a beginner.
 
@@ -106,11 +119,9 @@ So, the derivative is 2x.
 
 | Technique           | Description                                  | Example Input                                   | Expected Output                        |
 |---------------------|----------------------------------------------|-------------------------------------------------|----------------------------------------|
-| Few-Shot Prompting  | Give a few examples to guide the model       | Translate Eng-French with a few pairs           | Correct translation                    |
-| Zero-Shot Prompting | Describe the task with no examples           | "Translate to French: ..."                      | Correct translation                    |
+| Few-Shot Prompting  | Provide a few examples to guide the model    | Translate Eng-French with a few pairs           | Correct translation                    |
+| Zero-Shot Prompting | Describe the task without examples           | "Translate to French: ..."                      | Correct translation                    |
 | Chain-of-Thought    | Model reasons step by step                   | "Let's think step by step..."                   | Reasoning steps + answer               |
 | Tree of Thought     | Model explores multiple reasoning paths      | "Consider different ways to..."                 | List of options + best choice          |
 | Meta-Prompting      | Instruct model how to behave or explain      | "Explain as an expert to a beginner..."         | Expert explanation                     |
-
-
 
