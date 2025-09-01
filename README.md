@@ -30,7 +30,7 @@ This structure ensures clarity, avoids ambiguity, and minimizes hallucination ri
 
 ---
 
-## Prompting Techniques
+## Advanced Prompting Techniques
 
 ### 1. Few-Shot Prompting
 Provide a few examples of the task to help the model understand the expected pattern and generate outputs accordingly.
